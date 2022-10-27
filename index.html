@@ -9,101 +9,18 @@
 </head>
 
 <body>
-    <script>
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * max);
-        }
 
-        function getComputerChoice() {
-            let choice = getRandomInt(3);
-            if (choice === 0)
-            {
-                return "rock"
-            }
-            if (choice === 1)
-            {
-                return "paper"
-            }
-            return "scissors"
-        }
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    <br>
+    <div id="selections"></div>
+    <div id="results"></div>
+    <div id="scores"></div>
+    <br>
+    <div id="gameover"></div>
 
-        function singleRound(playerSelection, computerSelection)
-        {
-            console.log(playerSelection, computerSelection);
-            if (
-                (playerSelection === "rock" && computerSelection === "scissors") ||
-                (playerSelection === "scissors" && computerSelection === "paper") ||
-                (playerSelection === "paper" && computerSelection === "rock")
-            )
-            {
-                console.log("The winnner is You!");
-                return 1;
-            }
-            if (
-                (computerSelection === "rock" && playerSelection === "scissors") ||
-                (computerSelection === "scissors" && playerSelection === "paper") ||
-                (computerSelection === "paper" && playerSelection === "rock")
-            )
-            {
-                console.log("The winnner is the computer...");
-                return -1;
-            }
-            else {
-                console.log("It's a draw.");
-                return 0;
-            }
-        }
-
-        function checkInput(rps)
-        {
-            let formattedRps = rps.toLowerCase();
-            if (formattedRps !== "rock" && formattedRps !== "paper" && formattedRps !== "scissors")
-            {
-                return false
-            }
-            return true
-        }
-
-        function game()
-        {
-            let yourScore = 0;
-            let computerScore = 0;
-            let i = 0;
-            while (i != 5)
-            {
-                let rps = prompt("Rock, paper or scissors?")
-                if (checkInput(rps))
-                {
-                    let score = singleRound(rps, getComputerChoice());
-                    if (score === 1)
-                    {
-                        yourScore++;
-                    }
-                    if (score === -1)
-                    {
-                        computerScore++
-                    }
-                    i++;
-                }
-            }
-            console.log("Your score: " + yourScore);
-            console.log("Computer score: " + computerScore);
-            if (yourScore>computerScore)
-            {
-                console.log("You won in 5 games!");
-            }
-            else if (yourScore<computerScore)
-            {
-                console.log("Computer won in 5 games...");
-            }
-            else {
-                console.log("It's a draw in 5 games...");
-            }
-
-        }
-
-        game()
-
+    <script src="index.js">
     </script>
 </body>
 
